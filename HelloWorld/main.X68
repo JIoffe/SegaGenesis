@@ -149,7 +149,7 @@ vblank_on_flag          EQU $00000001
  	dc.b	'2019.AUG'			; date
 	dc.b	'Hello World                                     ' ; cart name
 	dc.b	'Hello World                                     ' ; cart name (alt)
-	dc.b	'GM 20190728-00'	; program type / serial number / version
+	dc.b	'GM 12345678-00'	; program type / serial number / version
 	dc.w	$0000				; ROM checksum
 	dc.b	'J               '	; I/O device support (unused)
 	dc.l	$00000000			; address of ROM start
@@ -184,7 +184,8 @@ ClearRegisters:
 	move.l  d0,d7
 	move.l  d0,a0
 	move.l  d0,a1
-	move.l  d0,a2
+	move.l  d0,a2
+
 	move.l  d0,a3
 	move.l  d0,a4
 	move.l  d0,a5
@@ -204,7 +205,8 @@ SetupVDP:
         move.w  (a0)+,vdp_control
         dbf     d0, vdp_init_loop
 		
-ClearVRAM:
+ClearVRAM:
+
     move.l  #vdp_vram_write, vdp_control
     move.w  #$7fff,d0
     clear_vram_loop:
@@ -345,6 +347,7 @@ VDPSetupArray:
 VDPSetupArrayEnd:
 
 RomEnd:
+
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~
