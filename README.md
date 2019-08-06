@@ -1,6 +1,6 @@
 # SegaGenesis
 ## Experiments in 68K Assembly for the Sega Genesis
-The Sega Genesis is extremely near and dear to my heart. I can hardly believe it took me this long to get inspired to start playing with it.
+The Sega Genesis is extremely near and dear to my heart. I can hardly believe it took me this long to get inspired to start playing with it. Will hopefully have samples that others can learn from and will try to create some semblence of a game.
 ## Tools
 - [Easy68k Development Suite](http://www.easy68k.com/)
 - [Gens K-Mod](https://segaretro.org/Gens_KMod)
