@@ -1,0 +1,73 @@
+Palettes:
+Palette0:
+   dc.w $0000
+   dc.w $0000
+   dc.w $0EEE
+   dc.w $0AAA
+   dc.w $0666
+   dc.w $000E
+   dc.w $00EE
+   dc.w $0E0E
+   dc.w $0EE0
+   dc.w $0222
+   dc.w $0444
+   dc.w $0666
+   dc.w $0888
+   dc.w $0AAA
+   dc.w $0CCC
+   dc.w $0EEE
+Palette1:
+   dc.w $0000
+   dc.w $0000
+   dc.w $0ECC
+   dc.w $0E88
+   dc.w $0E44
+   dc.w $000E
+   dc.w $00EE
+   dc.w $0E0E
+   dc.w $0EE0
+   dc.w $0222
+   dc.w $0444
+   dc.w $0666
+   dc.w $0888
+   dc.w $0AAA
+   dc.w $0CCC
+   dc.w $0EEE
+Palette2:
+   dc.w $0000
+   dc.w $0000
+   dc.w $066E
+   dc.w $044E
+   dc.w $000E
+   dc.w $000E
+   dc.w $00EE
+   dc.w $0E0E
+   dc.w $0EE0
+   dc.w $0222
+   dc.w $0444
+   dc.w $0666
+   dc.w $0888
+   dc.w $0AAA
+   dc.w $0CCC
+   dc.w $0EEE
+Palette3:
+   dc.w $0000
+   dc.w $068C
+   dc.w $0222
+   dc.w $0688
+   dc.w $08AC
+   dc.w $0446
+   dc.w $046A
+   dc.w $0ACE
+   dc.w $0222
+   dc.w $0CCC
+   dc.w $0002
+   dc.w $0AAA
+   dc.w $0CCC
+   dc.w $0244
+   dc.w $0248
+   dc.w $0224
+*~Font name~Courier New~
+*~Font size~10~
+*~Tab type~1~
+*~Tab size~4~
