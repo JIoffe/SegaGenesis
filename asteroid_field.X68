@@ -175,8 +175,7 @@ MainLoop:
         and.w   #color_star_3, d2
         move.w  d2, vdp_data
         
-        cmp.w   #$0666, d1
-        ;tst.w   d1                  ; See if we're already at black and start over
+        cmp.w   #$0666, d1           ; Don't fade all the way to black
         bne.s   next_stars
         move.w  #$0EEE, d1
         next_stars:
