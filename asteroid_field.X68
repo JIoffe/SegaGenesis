@@ -31,6 +31,7 @@ MEM_stars_fade_2        EQU $FFFF000A       ;WORD
 
 MEM_ship_x              EQU $FFFF000C       ;WORD
 MEM_ship_y              EQU $FFFF000E       ;WORD
+MEM_ship_gfx            EQU $FFFF0010       ;WORD
 
 *==================================
 * Flags
@@ -138,6 +139,7 @@ InitGraphics:
         bsr.w   DrawStamp
 	
 	init_spaceship:
+	    move.w  #ship_tile_index|cram_palette_2_bits, (MEM_ship_gfx)
 	    lea     sprite_ship_right, a0
 	    move.l  #vdp_vram_sprite, vdp_control
 	    move.w  #ship_initial_x,  vdp_data
@@ -221,15 +223,16 @@ MainLoop:
     ; Move Starship
     move.l  #MEM_ship_x, a2
     move.l  #MEM_ship_y, a3
+    move.l  #MEM_ship_gfx, a4
     move.b	(MEM_buttons_held), d2
+    
+    move.w  (a4), d5      ; d5 will hold the graphics property for the ship sprite
     
     move.b	d2, d1
     andi.b  #joypad_right, d1
     beq.s   check_left
     ; MOVING RIGHT
-    moveq   #0, d0
-    move.w  #ship_tile_index|cram_palette_2_bits, d1                        ; clear h flip
-    bsr.w   UpdateSpriteGfx
+    move.w  #ship_tile_index|cram_palette_2_bits, d5                        ; clear h flip
     addi.w  #player_speed, (a2)
     bra.s   lr_checked
     check_left:
@@ -237,9 +240,7 @@ MainLoop:
         andi.b  #joypad_left, d1
         beq.s   lr_checked
         ; MOVING LEFT
-        moveq   #0, d0
-        move.w  #ship_tile_index|cram_palette_2_bits|sprite_hflip_bit, d1   ; set h flip
-        bsr.w   UpdateSpriteGfx
+        move.w  #ship_tile_index|cram_palette_2_bits|sprite_hflip_bit, d5   ; set h flip
         subi.w  #player_speed, (a2)    
     lr_checked:
     
@@ -255,9 +256,11 @@ MainLoop:
         addi.w  #player_speed, (a3)
     ud_checked:
     
-    moveq   #0, d0
+    moveq   #0,   d0
     move.l  (a2), d1
-    bsr.w   UpdateSpriteXY
+    move.w  d5,   d2
+    move.w  d5, (a4)
+    bsr.w   UpdateSpritePosGfx
     
     bra.w   MainLoop
     
@@ -308,7 +311,7 @@ UpdateSpriteXY:
     move.l  d5, vdp_control
     move.w  d1, vdp_data
     
-    addi.l  #6, d0
+    addq    #6, d0
     swap    d0
     add.l   #vdp_vram_sprite, d0
     move.l  d0, vdp_control
@@ -320,10 +323,31 @@ UpdateSpriteXY:
 ;       Set d1 to graphics word
 UpdateSpriteGfx:
     lsl.l   #3, d0
-    addi.l  #4, d0
+    addq    #4, d0
     swap    d0
     add.l   #vdp_vram_sprite, d0
     move.l  d0, vdp_control
+    move.w  d1, vdp_data
+    rts
+
+; USE - Set d0 to sprite index
+;       Set d1 to Sprite XXXXYYYY
+;       Set d2 to graphics word
+  
+UpdateSpritePosGfx:
+    lsl.l   #3, d0
+    move.l  d0, d5
+    swap    d5
+    add.l   #vdp_vram_sprite, d5
+    move.l  d5, vdp_control
+    move.w  d1, vdp_data
+    
+    addq    #4, d0
+    swap    d0
+    add.l   #vdp_vram_sprite, d0
+    move.l  d0, vdp_control
+    move.w  d2, vdp_data
+    swap    d1
     move.w  d1, vdp_data
     rts
 
