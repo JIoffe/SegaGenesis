@@ -93,6 +93,13 @@ cram_palette_1_bits     EQU $2000
 cram_palette_2_bits     EQU $4000
 cram_palette_3_bits     EQU $6000
 
+; For Sprites
+sprite_priority_bit     EQU $8000
+sprite_vflip_bit        EQU $1000
+sprite_hflip_bit        EQU $0800
+
+
+
 
 
 

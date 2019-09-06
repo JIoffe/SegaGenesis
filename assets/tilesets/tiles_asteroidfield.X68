@@ -1,4 +1,4 @@
-;526 tile(s)
+;542 tile(s)
 Tiles:
    dc.l $04340000
    dc.l $43234000
@@ -85,6 +85,7 @@ Tiles:
    dc.l $00000000
    dc.l $00000000
    dc.l $00000000
+   dc.l $00F00000
    dc.l $00000000
    dc.l $00000000
    dc.l $00000000
@@ -106,7 +107,6 @@ Tiles:
    dc.l $00000C00
    dc.l $0000CAC0
    dc.l $00000C00
-   dc.l $00000000
    dc.l $00000000
    dc.l $00000000
    dc.l $00000000
@@ -4202,6 +4202,134 @@ Tiles:
    dc.l $00000000
    dc.l $AAAAAAAA
    dc.l $00AAAAAA
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000AAA
+   dc.l $00000AFF
+   dc.l $00000A55
+   dc.l $000000A9
+   dc.l $000000A5
+   dc.l $0000000B
+   dc.l $0000000B
+   dc.l $000000BF
+   dc.l $000000BF
+   dc.l $000BBBBF
+   dc.l $0BBFFFBF
+   dc.l $BFFAAABA
+   dc.l $BAAAAABA
+   dc.l $BAAAAABA
+   dc.l $0BBBBB44
+   dc.l $000004EE
+   dc.l $00004EEE
+   dc.l $0004EEEE
+   dc.l $0041EEEE
+   dc.l $04111111
+   dc.l $04444444
+   dc.l $000BBBBB
+   dc.l $00007AA7
+   dc.l $00000777
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $A0000000
+   dc.l $5A000000
+   dc.l $99AAA000
+   dc.l $55555A44
+   dc.l $BBBBB411
+   dc.l $FFFFF411
+   dc.l $FFFFF4EE
+   dc.l $FFFFF4EE
+   dc.l $FFFFF4EE
+   dc.l $BBFBF4EE
+   dc.l $AAABA4EE
+   dc.l $AAAAA433
+   dc.l $AAAAA433
+   dc.l $44444443
+   dc.l $33333314
+   dc.l $E33EE140
+   dc.l $EEE11400
+   dc.l $E1144000
+   dc.l $14400000
+   dc.l $40000000
+   dc.l $B0000000
+   dc.l $FFFFFF00
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $0000000D
+   dc.l $000000DC
+   dc.l $44444D66
+   dc.l $1111D666
+   dc.l $111D2666
+   dc.l $EEED2666
+   dc.l $EAED2666
+   dc.l $AFAD2266
+   dc.l $AFAD2266
+   dc.l $AFFAD226
+   dc.l $3AFFAD22
+   dc.l $33AFFAD2
+   dc.l $333AFFAD
+   dc.l $4333AFFA
+   dc.l $04444AFF
+   dc.l $000000AA
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $00000000
+   dc.l $DDDD0000
+   dc.l $6666D000
+   dc.l $666C9D00
+   dc.l $6666C9D0
+   dc.l $66666C6D
+   dc.l $6666666D
+   dc.l $6666666D
+   dc.l $6666666D
+   dc.l $6666666D
+   dc.l $C66666D0
+   dc.l $6C666D00
+   dc.l $2222D000
+   dc.l $DDDD0000
+   dc.l $AAAAAAA0
+   dc.l $FFFFFFFA
+   dc.l $AFFFFAA0
+   dc.l $0AAAA000
+   dc.l $00000000
+   dc.l $00000000
    dc.l $00000000
    dc.l $00000000
    dc.l $00000000
