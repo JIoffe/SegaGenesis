@@ -56,6 +56,12 @@ vdp_vsram_write         EQU $14000000
 vdp_screen_width        EQU $0140
 vdp_screen_height       EQU $00F0
 
+* color constants
+red_mask                EQU $000E
+green_mask              EQU $00E0
+blue_mask               EQU $0E00
+
+
 *==============================================================
 * Memory Map for this ROM
 *==============================================================
@@ -230,33 +236,32 @@ BeforeLoop:
     * Need interrupts to react to VBlank
     move.w  #interrupts_enable, sr
 
+
 MainLoop:
     * Changes the background based on the ABC buttons
     bsr.w   WaitVBlank
     
     move.b	(MEM_buttons_held), d0
-    clr.w   d1
-    clr.w   d2
+    moveq   #0, d2
     
     move.b  d0, d1
     andi.b  #joypad_a, d1
-    sne.b   d1
-    andi.b  #$0E, d1
-    or.w    d1, d2
+    beq.s   red_added
+        move.w  #red_mask, d2
+    red_added:
     
     move.b  d0, d1
     andi.b  #joypad_b, d1
-    sne.b   d1
-    andi.b  #$E0, d1
-    or.w    d1, d2
+    beq.s   green_added
+        ori.w  #green_mask, d2
+    green_added:
     
     move.b  d0, d1
     andi.b  #joypad_c, d1
-    sne.b   d1
-    andi.b  #$E0, d1
-    lsl.w   #4, d1
-    or.w    d1, d2
-	
+    beq.s   blue_added
+        ori.w  #blue_mask, d2
+    blue_added:
+    
     move.l  #vdp_cram_write, vdp_control
     move.w  d2, vdp_data
     
@@ -347,6 +352,7 @@ VDPSetupArray:
 VDPSetupArrayEnd:
 
 RomEnd:
+
 
 
 
