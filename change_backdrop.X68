@@ -27,14 +27,14 @@ joypad_2_control        EQU $00A1000B
 joypad_x_control        EQU $00A1000D
 
 * button bitflags
-joypad_up               EQU $01
-joypad_down             EQU $02
-joypad_left             EQU $04
-joypad_right            EQU $08
-joypad_b                EQU $10
-joypad_c                EQU $20
-joypad_a                EQU $40
-joypad_start            EQU $80
+joypad_up               EQU 0
+joypad_down             EQU 1
+joypad_left             EQU 2
+joypad_right            EQU 3
+joypad_b                EQU 4
+joypad_c                EQU 5
+joypad_a                EQU 6
+joypad_start            EQU 7
 
 
 * Note on VDP: Color is X B G R
@@ -241,29 +241,24 @@ MainLoop:
     * Changes the background based on the ABC buttons
     bsr.w   WaitVBlank
     
-    move.b	(MEM_buttons_held), d0
-    moveq   #0, d2
-    
-    move.b  d0, d1
-    andi.b  #joypad_a, d1
+    move.b	MEM_buttons_held, d0
+    btst    #joypad_a, d0
     beq.s   red_added
-        move.w  #red_mask, d2
+        move.w  #red_mask, d1
     red_added:
     
-    move.b  d0, d1
-    andi.b  #joypad_b, d1
+    btst    #joypad_b, d0
     beq.s   green_added
-        ori.w  #green_mask, d2
+        ori.w  #green_mask, d1
     green_added:
     
-    move.b  d0, d1
-    andi.b  #joypad_c, d1
+    btst    #joypad_c, d0
     beq.s   blue_added
-        ori.w  #blue_mask, d2
+        ori.w  #blue_mask, d1
     blue_added:
     
     move.l  #vdp_cram_write, vdp_control
-    move.w  d2, vdp_data
+    move.w  d1, vdp_data
     
     bra.s   MainLoop
    
@@ -352,6 +347,7 @@ VDPSetupArray:
 VDPSetupArrayEnd:
 
 RomEnd:
+
 
 
 
